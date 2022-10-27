@@ -9,7 +9,10 @@ export const Navigation = () => {
         <SideNavigation
             header={{
                 href: '/',
-                text: 'Amazon Chime SDK Meetings with Transcribe',
+                logo: {
+                    src: './converse1.svg',
+                    alt: 'logo',
+                },
             }}
             items={navigationItems}
         />
