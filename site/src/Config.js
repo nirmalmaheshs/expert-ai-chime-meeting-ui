@@ -1,5 +1,5 @@
 const config = await fetch('./config.json').then((response) => response.json());
-
+console.log('Printing the config: ', config);
 export const ConcatBucket = config.concatBucket;
 export const Region = config.userPoolRegion;
 

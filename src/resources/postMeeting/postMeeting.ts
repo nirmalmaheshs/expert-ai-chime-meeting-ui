@@ -6,6 +6,7 @@ import {
   UpdateCommandInput,
   UpdateCommandOutput,
 } from '@aws-sdk/lib-dynamodb';
+import { S3Client } from '@aws-sdk/client-s3';
 const ddbClient = new DynamoDBClient({ region: 'us-east-1' });
 const marshallOptions = {
   convertEmptyValues: false,
@@ -52,7 +53,10 @@ async function updateOutputTable(
       ':ts': Date.now() / 1e3,
     },
   };
-  console.log(`info to put: ${JSON.stringify(updateOutputTableInput)}`);
+  const bucketName = '';
+  const transcriptPath = ``;
+  const s3Object = await S3Client.getObject({ Bucket: bucketName, Key: transcriptPath }).promise();
+  const data = s3Object.Body?.toString();
   try {
     const data: UpdateCommandOutput = await ddbDocClient.send(
       new UpdateCommand(updateOutputTableInput),
