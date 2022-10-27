@@ -131,7 +131,7 @@ export const Meetings = () => {
     return (
         <SpaceBetween direction="horizontal" size="xs">
             <SpaceBetween direction="vertical" size="l">
-                <Container header={<Header variant="h2">Amazon Chime SDK Meeting</Header>}>
+                <Container>
                     <div style={{ height: '600px', width: '720px' }}>
                         <VideoTileGrid />
                     </div>
